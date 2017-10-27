@@ -18,10 +18,22 @@ $zipcode = $_POST['zipcode'];
 $area_phone = $_POST['area_phone'];
 $prefix_phone = $_POST['prefix_phone'];
 $phone = $_POST['phone'];
-$email = $_POST['email'];	
+$email = $_POST['email'];
+//$ageGroup = $_POST['ageGroup'];
 
 
-$inserted = $db->query("insert into runners values('$firstName','$lastName','$middleName','$address','$city','$zipcode','$area_phone','$prefix_phone','$phone','$email')");
+$inserted = $db->query("insert into runners values(
+'$firstName',
+'$lastName',
+'$middleName',
+'$address',
+'$city',
+'$zipcode',
+'$area_phone',
+'$prefix_phone',
+'$phone',
+'$email'
+)");
 
 
 if($inserted)

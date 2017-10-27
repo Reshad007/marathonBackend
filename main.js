@@ -1,11 +1,9 @@
 //		  Aziz, Shekib
-//      jadrn004
+//      jadrn004 
 //      Project #2
 //      Fall 2017
-
 	//Establishing AJAX connection	
-	function retrieve(){
-		
+	function retrieve() { 
 		var xhr;
 		var firstName = document.getElementById("firstName").value;
 		var lastName = document.getElementById("lastName").value;
@@ -16,27 +14,41 @@
 		var area_phone = document.getElementById("area_phone").value;
 		var prefix_phone = document.getElementById("prefix_phone").value;
 		var phone = document.getElementById("phone").value;
-		var email = document.getElementById("email").value;/*
+		var email = document.getElementById("email").value;
+
+		
+		
+		upperCaseFirstLetter(firstName);		
+		//var ageGroup = "adult";
+		
+		/*if(document.getElementById("adult").checked){
+			//ageGroup = document.getElementById("adult").value;					
+		}
+		
+			
+		
+		//var ageGroup = document.getElementById("novice").value;
+		/*
 		var gender = document.getElementById("gender").value;
 		var DOB = document.getElementById("DOB").value;
 		var medicalCondition = document.getElementById("medicalCondition").value;
 		var expert = document.getElementById("expert").value;
 		var experienced = document.getElementById("experienced").value;
 		var novice = document.getElementById("novice").value;
-		var senior = document.getElementById("senior").value;
-		var adult = document.getElementById("adult").value;
 		var teen = document.getElementById("teen").value;*/
 			
-		var params = ("firstName=" +firstName+ 
-						  "&lastName=" +lastName+ 
-						  "&middleName=" +middleName+ 
-						  "&address=" +address+
-						  "&city=" +city+
-						  "&zipcode=" +zipcode+
-						  "&area_phone=" +area_phone+
+		var params = ("firstName="     +firstName+ 
+						  "&lastName="     +lastName+ 
+						  "&middleName="   +middleName+ 
+						  "&address="      +address+
+						  "&city="         +city+
+						  "&zipcode="      +zipcode+
+						  "&area_phone="   +area_phone+
 						  "&prefix_phone=" +prefix_phone+
-						  "&phone=" +phone+
-						  "&email=" +email/*
+						  "&phone="        +phone+
+						  "&email="        +email
+						  //"&ageGroup="     +ageGroup
+						  /*
 						  "&gender=" +gender+
 						  "&DOB=" +DOB+
 						  "&medicalCondition=" +medicalCondition+ 
@@ -47,7 +59,6 @@
 						  "&adult=" +adult+
 						  "&teen=" +teen*/); 
 		
-	
 		
 		if(window.XMLHttpRequest){
 			try{
@@ -69,6 +80,12 @@
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send(params);
 
+	}
+
+	// Capitalize first letter 
+	function upperCaseFirstLetter(string) 
+	{
+		 return string.charAt(0).toUpperCase() + string.slice(1);
 	}
  
 	// Checks if date entered is valid. format: mm/dd/yyyy
@@ -141,6 +158,8 @@ $(document).ready( function() {
     var errorStatusHandle = $('#message_line');
     var elementHandle = new Array(17);
 	
+	 
+	
     elementHandle[0] = $('[name="firstName"]');
     elementHandle[1] = $('[name="lastName"]');
 	 elementHandle[2] = $('[name="middleName"]');
@@ -158,6 +177,8 @@ $(document).ready( function() {
 	 elementHandle[14] = $('[name="experianceLevel"]');
 	 elementHandle[15] = $('[name="ageGroup"]');
 	 elementHandle[16] = $('input[name="user_pic"]');
+	
+	elementHandle[0].focus();
 	
 	var size=0;
 	$(elementHandle[16]).on('change',function(e) {
@@ -329,7 +350,7 @@ $(document).ready( function() {
         return true;
         }       
 
-   elementHandle[0].focus();
+   
 	
 // on blur, if the user has entered valid data, the error message
 // should no longer show.
